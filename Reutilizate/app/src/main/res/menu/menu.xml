@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_inicio"
+        android:title="Inicio"/>
+    <item
+        android:id="@+id/nav_publicar"
+        android:title="Publicar objeto"/>
+    <item
+        android:id="@+id/nav_matches"
+        android:title="Matches"/>
+    <item
+        android:id="@+id/nav_suscripcion"
+        android:title="Suscripción"/>
+    <item
+        android:id="@+id/nav_mis_objetos"
+        android:title="Mis objetos"/>
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Cerrar sesión"/>
+
+</menu>

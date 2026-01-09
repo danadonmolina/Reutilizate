@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <EditText
+        android:id="@+id/etNombreObjeto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del objeto" />
+
+    <EditText
+        android:id="@+id/etDescripcionObjeto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripción"
+        android:minLines="3" />
+
+    <!-- Botón seleccionar imagen -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSeleccionarImagen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar imagen" />
+
+    <!-- Previsualización -->
+    <ImageView
+        android:id="@+id/imgPreview"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="12dp"
+        android:background="#DDDDDD" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPublicar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Publicar objeto"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

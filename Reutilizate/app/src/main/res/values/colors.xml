@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Colores del diseño -->
+    <color name="lightGray">#F2F2F2</color>
+    <color name="gray">#757575</color>
+    <color name="darkGray">#212121</color>
+
+    <!-- Colores del tema (OBLIGATORIOS) -->
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#1976D2</color>
+    <color name="colorAccent">#03A9F4</color>
+
+</resources>
