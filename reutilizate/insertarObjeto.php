@@ -6,7 +6,7 @@ $descripcion = $_POST["descripcion"] ?? "";
 $id_usuario  = intval($_POST["id_usuario"] ?? 0);
 $imagenBase64 = $_POST["imagen"] ?? "";  // ahora recibimos la imagen en Base64
 
-// Si no hay imagen, usamos una por defecto
+// Si no hay imagen, usamos una por defecto que esta en la carpeta uploads
 $nombreArchivo = "uploads/default.png";
 
 if (!empty($imagenBase64)) {
@@ -22,16 +22,19 @@ if (!empty($imagenBase64)) {
 }
 
 try {
+// Consulta para insertar un objeto
     $sql = "INSERT INTO objetos (nombre, descripcion, imagen, id_usuario)
             VALUES (:nombre, :descripcion, :imagen, :id_usuario)";
 
     $stmt = $conexion->prepare($sql);
 
+// Asociamos los parametros a la consulta
     $stmt->bindParam(":nombre", $nombre);
     $stmt->bindParam(":descripcion", $descripcion);
     $stmt->bindParam(":imagen", $nombreArchivo); // guardamos el nombre del archivo
     $stmt->bindParam(":id_usuario", $id_usuario);
 
+// Ejecutamos y devolvemos resultado
     if ($stmt->execute()) {
         echo "OK";
     } else {
