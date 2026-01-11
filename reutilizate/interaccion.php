@@ -41,7 +41,7 @@ try {
         exit;
     }
 
-    // Comprobar like inverso
+    // Comprobar LIKE inverso
     $stmt = $conexion->prepare("
         SELECT i.id_objeto
         FROM interacciones i
