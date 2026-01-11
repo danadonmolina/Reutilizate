@@ -17,7 +17,7 @@ public class Match {
         this.idUsuarioOtro = idUsuarioOtro;
     }
 
-    // Getters
+    // GETTERS
     public String getNombreObjeto() {
         return nombreObjeto;
     }
@@ -34,7 +34,7 @@ public class Match {
         return idUsuarioOtro;
     }
 
-    // Setters
+    // SETTERS
     public void setNombreObjeto(String nombreObjeto) {
         this.nombreObjeto = nombreObjeto;
     }

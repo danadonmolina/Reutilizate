@@ -16,6 +16,7 @@ import com.example.reutilizate.R;
 
 public class SuscripcionFragment extends Fragment {
 
+    // Botón para activar o cancelar la suscripción
     private Button btnGestionar;
 
     @Nullable
@@ -24,27 +25,37 @@ public class SuscripcionFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
+        // Inflamos el layout del fragment
         View v = inflater.inflate(R.layout.fragment_suscripcion, container, false);
 
+        // Enlazamos el botón del layout
         btnGestionar = v.findViewById(R.id.btnGestionarSuscripcion);
 
+        // Obtenemos las preferencias del usuario
         SharedPreferences prefs = getActivity().getSharedPreferences("usuario", Context.MODE_PRIVATE);
+
+        // Comprobamos si el usuario es premium
         boolean esPremium = prefs.getBoolean("premium", false);
 
-        //  IMPORTANTE: actualizar el texto al entrar al fragmento
+        // Actualizamos el texto del botón según el estado actual
         if (esPremium) {
             btnGestionar.setText("Cancelar suscripción");
         } else {
             btnGestionar.setText("Activar suscripción");
         }
 
-        // Lógica del botón
+        // Lógica del botón para activar o cancelar la suscripción
         btnGestionar.setOnClickListener(view -> {
+
+            // Obtenemos el estado actual
             boolean premiumActual = prefs.getBoolean("premium", false);
 
+            // Si no es premium = activar
             if (!premiumActual) {
                 prefs.edit().putBoolean("premium", true).apply();
                 btnGestionar.setText("Cancelar suscripción");
+
+                // Si ya es premium = cancelar
             } else {
                 prefs.edit().putBoolean("premium", false).apply();
                 btnGestionar.setText("Activar suscripción");

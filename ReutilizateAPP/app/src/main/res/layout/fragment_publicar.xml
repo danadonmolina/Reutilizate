@@ -17,14 +17,14 @@
         android:hint="Descripción"
         android:minLines="3" />
 
-    <!-- Botón seleccionar imagen -->
+    <!-- Botón seleccionar imagen entra a la galeria -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSeleccionarImagen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Seleccionar imagen" />
 
-    <!-- Previsualización -->
+    <!-- Previsualización de la imagen-->
     <ImageView
         android:id="@+id/imgPreview"
         android:layout_width="match_parent"

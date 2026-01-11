@@ -24,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText etCorreo, etContrasena;
     Button btnLogin, btnRegistro;
 
+    // URL DEL SCRIPT DEL PHP
     private final String URL_LOGIN = "http://10.0.2.2/reutilizate/login.php";
 
     @Override
@@ -38,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLogin.setOnClickListener(v -> {
 
+            // Obtenemos los valores que introduce el usuario
             String correo = etCorreo.getText().toString().trim();
             String pass = etContrasena.getText().toString().trim();
 
@@ -45,9 +47,11 @@ public class LoginActivity extends AppCompatActivity {
             Log.d("LOGIN", "Correo introducido: '" + correo + "'");
             Log.d("LOGIN", "Password introducida: '" + pass + "'");
 
+            // Validamos los campos vacios
             if (correo.isEmpty() || pass.isEmpty()) {
                 Toast.makeText(this, "Rellena todos los campos", Toast.LENGTH_SHORT).show();
             } else {
+                // Si esta correcto lo intentamos
                 login(correo, pass);
             }
         });
@@ -57,8 +61,10 @@ public class LoginActivity extends AppCompatActivity {
         );
     }
 
+    // Metodo q se encarga de enviar el post al servidor para validar creedenciales
     private void login(String correo, String password) {
 
+        // Log de la respuesta recibida
         Log.d("LOGIN", "Enviando petición a: " + URL_LOGIN);
 
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -72,10 +78,12 @@ public class LoginActivity extends AppCompatActivity {
 
                     response = response.trim();
 
+                    // Si el servidor devuelve un id el lolgin es correcto
                     if (!response.equals("ERROR")) {
 
                         int idUsuario = Integer.parseInt(response);
 
+                        // Guardamos los datos
                         getSharedPreferences("usuario", MODE_PRIVATE)
                                 .edit()
                                 .putBoolean("logueado", true)
@@ -101,6 +109,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 Log.d("LOGIN", "Enviando POST: correo='" + correo + "', password='" + password + "'");
 
+                // Parametros del post
                 Map<String, String> params = new HashMap<>();
                 params.put("correo", correo);
                 params.put("password", password);
@@ -108,6 +117,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
+        // Añadimos peticion a la cola
         queue.add(request);
     }
 }
